@@ -93,6 +93,14 @@ const photos = [
     originalWidth: 1200,
   },
   {
+    text: "Estanque",
+    key: "14LSU29JSYTykqFn_GTKRTZFaL1xpTYCC",
+    src: "https://drive.google.com/thumbnail?id=14LSU29JSYTykqFn_GTKRTZFaL1xpTYCC&sz=w1200",
+    description: "Voigtlander Bessa R",
+    color: "#E95800",
+    originalWidth: 1200,
+  },
+  {
     text: "Rincon",
     key: "1-Zti7lLKnswVkcSmDXlt7ZG7wDCwP3Nt",
     src: "https://drive.google.com/thumbnail?id=1-Zti7lLKnswVkcSmDXlt7ZG7wDCwP3Nt&sz=w1200",
