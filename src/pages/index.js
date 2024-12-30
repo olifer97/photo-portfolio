@@ -1,4 +1,8 @@
 import * as React from "react"
+import { useState } from "react";
+import { Gallery } from "react-grid-gallery";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const pageStyles = {
   color: "#232129",
@@ -13,81 +17,85 @@ const headingStyles = {
 const headingAccentStyles = {
   color: "#663399",
 }
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
+const photos = [
   {
     text: "Rosas",
-    id: "1KgkOz6igYYHBm2z4jNBxJGq6fjGmV4Ne",
+    key: "1KgkOz6igYYHBm2z4jNBxJGq6fjGmV4Ne",
+    src: "https://drive.google.com/thumbnail?id=1KgkOz6igYYHBm2z4jNBxJGq6fjGmV4Ne&sz=w1200",
     description:
       "Nikon FM2",
     color: "#E95800",
+    width: 1200,
+    height: 726,
+  },
+  {
+    text: "Rosas 2",
+    key: "1OCSmQWsgDzXuN_cXA-Gvd2X9CNBtBTfR",
+    src: "https://drive.google.com/thumbnail?id=1OCSmQWsgDzXuN_cXA-Gvd2X9CNBtBTfR&sz=w1200",
+    description: "Nikon FM2",
+    color: "#E95800",
+    width: 1200,
+    height: 726,
+  },
+  {
+    text: "Summer vibes",
+    key: "1yDqTNblnfYXnuYgPEq_F9HXzhKMoAm42",
+    src: "https://drive.google.com/thumbnail?id=1yDqTNblnfYXnuYgPEq_F9HXzhKMoAm42&sz=w1200",
+    description: "Nikon FM2",
+    color: "#E95800",
+    width: 1200,
+    height: 726,
+  },
+  {
+    text: "Palmeras",
+    key: "1uEgi8wz-V1tMzKjuO2_SzP-4z1CQO7i5",
+    description: "Nikon FM2",
+    color: "#E95800",
+    width: 1200,
+    height: 726,
+  },
+
+  {
+    text: "Rincon",
+    key: "1-Zti7lLKnswVkcSmDXlt7ZG7wDCwP3Nt",
+    src: "https://drive.google.com/thumbnail?id=1uEgi8wz-V1tMzKjuO2_SzP-4z1CQO7i5&sz=w1200",
+    description: "Voigtlander Bessa R",
+    color: "#E95800",
+    width: 1200,
+    height: 726,
+  },
+  {
+    text: "Rincon 2",
+    key: "1-aCtFAaxOryQwLUAyWakrcttEpV5tjzf",
+    src: "https://drive.google.com/thumbnail?id=1-aCtFAaxOryQwLUAyWakrcttEpV5tjzf&sz=w1200",
+    description: "Voigtlander Bessa R",
+    color: "#E95800",
+    width: 1200,
+    height: 726,
+  },
+  {
+    text: "Rincon 3",
+    key: "1-aYLy72CzvM149H1p_JuZSw0tL1Ie8_k",
+    src: "https://drive.google.com/thumbnail?id=1-aYLy72CzvM149H1p_JuZSw0tL1Ie8_k&sz=w1200",
+    description: "Voigtlander Bessa R",
+    color: "#E95800",
+    width: 1200,
+    height: 726,
   },
 ]
 
+const slides = photos.map(({ src, width, height }) => ({
+  src: src,
+  width,
+  height,
+}));
+
+
 const IndexPage = () => {
+  const [index, setIndex] = useState(-1);
+  const handleClick = (index, item) => setIndex(index);
+
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
@@ -95,13 +103,32 @@ const IndexPage = () => {
         <br />
         <span style={headingAccentStyles}>— through the lens</span>
       </h1>
-      <ul style={listStyles}>
-        {links.map(link => (
-          <li key={link.id}>
-             <img src={`https://drive.usercontent.google.com/download?id=${link.id}`}/>
-             <img src={`https://drive.google.com/uc?id=${link.id}`}/>
-          </li>
+      {/* {<div style={galleryStyles}>
+        <div style={listStyles}>
+        {flowers.map(link => (
+          <img key={link.id} src={`https://drive.google.com/thumbnail?id=${link.id}&sz=w1200`} width={link.width} style={link.style}/>
         ))}
+        </div>
+      </div>} */}
+      <Gallery
+        images={photos}
+        margin={10}
+        onClick={handleClick}
+        enableImageSelection={false}/>
+      
+      <Lightbox
+        slides={slides}
+        open={index >= 0}
+        index={index}
+        close={() => setIndex(-1)}
+      />
+      
+      <ul>
+        {/* {links.map(link => (
+          <li key={link.id} display="flex">
+             <img src={`static/rosas1.jpg`} width={1000}/>
+          </li>
+        ))} */}
       </ul>
     </main>
   )
