@@ -114,6 +114,7 @@ const IndexPage = () => {
       <Gallery
         images={photos}
         margin={10}
+        rowHeight={400}
         onClick={handleClick}
         enableImageSelection={false}/>
       
