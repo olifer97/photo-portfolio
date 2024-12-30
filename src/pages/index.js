@@ -40,6 +40,7 @@ const photos = [
       "Nikon FM2",
     color: "#E95800",
     width: 600,
+    originalWidth: 1200,
   },
   {
     text: "Rosas 2",
@@ -48,6 +49,7 @@ const photos = [
     description: "Nikon FM2",
     color: "#E95800",
     width: 600,
+    originalWidth: 1200,
   },
   {
     text: "Rosas 3",
@@ -56,6 +58,7 @@ const photos = [
     description: "Nikon FM2",
     color: "#E95800",
     width: 600,
+    originalWidth: 1200,
   },
   {
     text: "Summer vibes",
@@ -64,6 +67,7 @@ const photos = [
     description: "Nikon FM2",
     color: "#E95800",
     width: 600,
+    originalWidth: 1200,
   },
   {
     text: "Palmeras",
@@ -72,6 +76,7 @@ const photos = [
     description: "Nikon FM2",
     color: "#E95800",
     width: 600,
+    originalWidth: 1200,
   },
 
   {
@@ -81,6 +86,7 @@ const photos = [
     description: "Voigtlander Bessa R",
     color: "#E95800",
     width: 600,
+    originalWidth: 1200,
   },
   {
     text: "Rincon 2",
@@ -89,6 +95,7 @@ const photos = [
     description: "Voigtlander Bessa R",
     color: "#E95800",
     width: 600,
+    originalWidth: 1200,
   },
   {
     text: "Rincon 3",
@@ -97,13 +104,13 @@ const photos = [
     description: "Voigtlander Bessa R",
     color: "#E95800",
     width: 600,
+    originalWidth: 1200,
   },
 ]
 
-const slides = photos.map(({ src, width, height }) => ({
+const slides = photos.map(({ src, originalWidth }) => ({
   src: src,
-  width,
-  height,
+  width: originalWidth,
 }));
 
 
@@ -122,8 +129,8 @@ const IndexPage = () => {
         <span style={headingAccentStyles}>— through the lens</span>
       </h1>
       <div style={galleryStyles}>
-        {photos.map(p => (
-          <img key={p.key} src={p.src} width={p.width} style={imgStyles} onClick={handleClick}/>
+        {photos.map((p, i) => (
+          <img key={i} src={p.src} width={p.width} style={imgStyles} onClick={() => handleClick(i)}/>
         ))}
       </div>
       {/* {<Gallery
