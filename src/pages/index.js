@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Gallery } from "react-grid-gallery";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import { RowsPhotoAlbum } from "react-photo-album";
 
 const pageStyles = {
   color: "#232129",
@@ -131,13 +130,6 @@ const IndexPage = () => {
         rowHeight={400}
         onClick={handleClick}
         enableImageSelection={false}/>} */}
-      {/* <RowsPhotoAlbum 
-        photos={photos}
-        spacing={10}
-        targetRowHeight={150}
-        onClick={handleClick}
-        componentsProps={{ imageProps: { style: { objectFit: "cover" } } }}
-        rowConstraints={{ singleRowMaxHeight: 200 }}/> */}
       
       <Lightbox
         slides={slides}
