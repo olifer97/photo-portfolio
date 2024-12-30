@@ -27,8 +27,9 @@ const galleryStyles = {
 
 const imgStyles = {
   margin: 10,
+  minWidth: 0,
   maxWidth: "100%",
-  height: "auto"
+  height: "auto",
 }
 
 const photos = [
