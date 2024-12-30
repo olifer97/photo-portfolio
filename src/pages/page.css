@@ -1,0 +1,11 @@
+.page {
+    color: #232129;
+    padding: 96px;
+    font-family: -apple-system, Roboto, sans-serif, serif;
+}
+
+@media only screen and (max-width: 600px) {
+    .page {
+        padding: 10px;
+    }
+  }

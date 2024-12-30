@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useState } from "react";
-import { Gallery } from "react-grid-gallery";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import "./page.css"
 
 const pageStyles = {
   color: "#232129",
@@ -122,7 +122,7 @@ const IndexPage = () => {
   };
 
   return (
-    <main style={pageStyles}>
+    <main className="page">
       <h1 style={headingStyles}>
         OliFerFilm Portfolio
         <br />
@@ -139,12 +139,6 @@ const IndexPage = () => {
             onTouchStart={() => handleClick(i)}/>
         ))}
       </div>
-      {/* {<Gallery
-        images={photos}
-        margin={10}
-        rowHeight={400}
-        onClick={handleClick}
-        enableImageSelection={false}/>} */}
       
       <Lightbox
         slides={slides}
