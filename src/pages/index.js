@@ -60,7 +60,7 @@ const photos = [
   {
     text: "Rincon",
     key: "1-Zti7lLKnswVkcSmDXlt7ZG7wDCwP3Nt",
-    src: "https://drive.google.com/thumbnail?id=1-Zti7lLKnswVkcSmDXlt7ZG7wDCwP3Nt5&sz=w1200",
+    src: "https://drive.google.com/thumbnail?id=1-Zti7lLKnswVkcSmDXlt7ZG7wDCwP3Nt&sz=w1200",
     description: "Voigtlander Bessa R",
     color: "#E95800",
     width: 1200,
