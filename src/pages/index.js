@@ -130,7 +130,13 @@ const IndexPage = () => {
       </h1>
       <div style={galleryStyles}>
         {photos.map((p, i) => (
-          <img key={i} src={p.src} width={p.width} style={imgStyles} onClick={() => handleClick(i)}/>
+          <img
+            key={i}
+            src={p.src}
+            width={p.width}
+            style={imgStyles}
+            onClick={() => handleClick(i)}
+            onTouchStart={() => handleClick(i)}/>
         ))}
       </div>
       {/* {<Gallery
