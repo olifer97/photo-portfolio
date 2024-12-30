@@ -20,7 +20,9 @@ const headingAccentStyles = {
 
 const galleryStyles = {
   display: "flex",
-  flexWrap: "wrap"
+  flexWrap: "wrap",
+  alignItems: "center",
+  alignContent: "space-around"
 }
 
 const imgStyles = {
